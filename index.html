@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accumulator – The Next-Generation Compiler Language</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f7fa;
+        color: #1e1e1e;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+    header p {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+    main {
+        max-width: 1100px;
+        margin: auto;
+        padding: 2rem;
+    }
+    section {
+        margin-bottom: 3rem;
+    }
+    h2 {
+        color: #2575fc;
+        border-bottom: 2px solid #6a11cb;
+        padding-bottom: 0.5rem;
+    }
+    pre {
+        background: #1e1e1e;
+        color: #dcdcdc;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.95rem;
+    }
+    code {
+        font-family: 'Courier New', Courier, monospace;
+    }
+    ul {
+        margin-left: 1.5rem;
+    }
+    .highlight {
+        background: #fdf6e3;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    footer {
+        text-align: center;
+        padding: 2rem;
+        background: #2575fc;
+        color: white;
+        margin-top: 2rem;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Accumulator</h1>
+    <p>The Revolutionary Compiler Language with Dynamic Multi-States</p>
+</header>
+
+<main>
+
+<section>
+    <h2>Introduction</h2>
+    <p>Accumulator is a next-generation compiler system designed from the ground up to redefine how developers think about computations, variables, and programmatic states. Unlike conventional programming languages, Accumulator introduces the concept of <span class="highlight">"Thoughts"</span> – dynamic, multi-valued entities that automatically respond to changes in their dependencies. This paradigm allows for a truly live computation model where variables and functions evolve in real-time, providing a natural, intuitive, and readable programming experience.</p>
+    <p>The language is not merely a tool for writing code; it is a system for structuring logic in a human-readable, almost narrative form. Its syntax is textual yet precise, resembling written instructions or intentions rather than cryptic symbols. This approach ensures minimal cognitive load, faster learning curves, and direct alignment with the programmer's thought process.</p>
+</section>
+
+<section>
+    <h2>Core Concepts</h2>
+    <ul>
+        <li><span class="highlight">Thoughts (Dumma)</span>: The fundamental data unit in Accumulator, capable of holding multiple states and values simultaneously.</li>
+        <li><span class="highlight">Spark Variables</span>: Special dynamic variables that automatically update whenever their dependent Thoughts change.</li>
+        <li><span class="highlight">Chains</span>: Ordered sequences of operations or Thoughts that propagate results through their sequence without explicit loops.</li>
+        <li><span class="highlight">Portals</span>: Safe references to Thoughts allowing shared access across multiple computations while preventing direct memory conflicts.</li>
+        <li><span class="highlight">Textual Syntax</span>: Commands and operations are expressed as readable instructions, e.g., <code>grab a as 5</code> or <code>merge x y into z</code>.</li>
+        <li><span class="highlight">Live Computation</span>: Any change in a Spark variable or Thought triggers automatic recalculation in dependent chains, ensuring real-time correctness.</li>
+        <li><span class="highlight">Parallel Multi-States</span>: Thoughts can simultaneously exist in multiple states, allowing the system to track alternate computation paths, scenarios, or "what-if" analyses automatically.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Syntax Examples</h2>
+
+    <h3>Basic Variable Assignment</h3>
+    <pre><code>grab a as 5
+grab b as 10
+grab c as spark merge a b
+show c   // 15</code></pre>
+
+    <h3>Automatic Update with Sparks</h3>
+    <pre><code>grab a as 6
+show c   // 16, automatically updated due to Spark dependency</code></pre>
+
+    <h3>Functions as Dynamic Formulas</h3>
+    <pre><code>make circle_area with r start
+    -> spark times 3.14159 r r
+end
+
+grab radius as 5
+grab area as circle_area radius
+show area   // 78.53975
+
+grab radius as 6
+show area   // 113.09754, dynamically updated</code></pre>
+
+    <h3>Conditional Thoughts</h3>
+    <pre><code>think if x greater 5 start
+    show "x is greater than 5"
+otherwise
+    show "x is 5 or less"
+end</code></pre>
+
+    <h3>Chains of Operations</h3>
+    <pre><code>grab x as 2
+grab y as 3
+grab z as spark merge x y times 2
+show z   // 10
+grab x as 4
+show z   // 14, automatically recalculated</code></pre>
+
+</section>
+
+<section>
+    <h2>Unique Advantages</h2>
+    <ul>
+        <li>Fully <span class="highlight">dynamic variable system</span> – Sparks and Thoughts automatically track dependencies.</li>
+        <li>No traditional operators or symbols – all computation expressed as <span class="highlight">human-readable commands</span>.</li>
+        <li>Supports parallel computation paths through <span class="highlight">multi-state Thoughts</span>.</li>
+        <li>Readable, narrative-style syntax that reduces cognitive load and improves collaboration.</li>
+        <li>Extensible – developers can create custom Thoughts, Sparks, Chains, and Portals as needed.</li>
+        <li>Live computation ensures real-time correctness without manual recalculation.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Sample Program: Dynamic Calculator</h2>
+    <pre><code>grab price as 100
+grab tax_rate as 0.2
+grab tax as spark times price tax_rate
+grab total as spark sum price tax
+show total   // 120
+
+grab price as 150
+show total   // 180, automatically updated</code></pre>
+</section>
+
+<section>
+    <h2>Design Philosophy</h2>
+    <p>Accumulator is designed to mimic the natural human way of thinking about computations. Instead of focusing on low-level syntax or rigid types, the system encourages programmers to describe their intentions, relationships, and dependencies directly. Every Thought represents a mental model of a variable or operation, and Sparks provide a bridge between changing inputs and outputs. Chains allow for seamless propagation of computation without writing repetitive loops. Portals maintain safe references for distributed or shared computations.</p>
+
+<p>This philosophy transforms programming from a manual instruction system into a <strong>dynamic reasoning system</strong>, where the language itself helps maintain correctness, consistency, and clarity.</p>
+</section>
+
+<section>
+    <h2>Future Extensions</h2>
+    <ul>
+        <li>Interactive visualization of Thought dependencies.</li>
+        <li>Integration with AI to suggest optimal Spark chains and Chains.</li>
+        <li>Support for distributed computation across Portals.</li>
+        <li>Ability to serialize and store multi-state computations for reproducible results.</li>
+        <li>Extensible plugins for domain-specific Sparks (e.g., financial calculations, scientific simulations, predictive modeling).</li>
+    </ul>
+</section>
+
+</main>
+
+<footer>
+    &copy; 2026 Accumulator Project – Redefining Computation
+</footer>
+
+</body>
+</html>
